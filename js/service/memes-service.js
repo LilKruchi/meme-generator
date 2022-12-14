@@ -4,7 +4,7 @@ let gMemes
 
 createMemes()
 
-function createMeme(imgId,) {
+function createMeme(imgId) {
     return {
         imgId,
         selectedLineIdx: 0,
@@ -15,25 +15,7 @@ function createMeme(imgId,) {
                 size: 60,
                 align: 'center',
                 color: 'white'
-            },
-            // {
-            //     txt: 'Bottom Text',
-            //     size: 60,
-            //     align: 'left',
-            //     color: 'white'
-            // },
-            // {
-            //     txt: 'Test',
-            //     size: 60,
-            //     align: 'left',
-            //     color: 'red'
-            // },
-            // {
-            //     txt: 'ABC',
-            //     size: 60,
-            //     align: 'left',
-            //     color: 'red'
-            // },
+            }
         ]
     }
 }
@@ -49,11 +31,15 @@ function createNewLine() {
 
 function createMemes() {
     let memes = []
-    memes.push(createMeme(1))
-    memes.push(createMeme(2))
-    memes.push(createMeme(3))
-    memes.push(createMeme(4))
-    memes.push(createMeme(5))
+    // memes.push(createMeme(1))
+    // memes.push(createMeme(2))
+    // memes.push(createMeme(3))
+    // memes.push(createMeme(4))
+    // memes.push(createMeme(5))
+
+    for (let i = 1; i < 19; i++) {
+        memes.push(createMeme(i))
+    }
     gMemes = memes
 }
 

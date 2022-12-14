@@ -24,11 +24,6 @@
         <div class="search-bar"></div>
 
         <div class="photo-container">
-            <!-- <img src="./img/1.jpg" class="image-item img-grid1 1" alt="meme" onclick="onClickImg(1)">
-            <img src="./img/2.jpg" class="image-item img-grid2" alt="meme" onclick="onClickImg(2)">
-            <img src="./img/3.jpg" class="image-item img-grid3" alt="meme" onclick="onClickImg(3)">
-            <img src="./img/4.jpg" class="image-item img-grid4" alt="meme" onclick="onClickImg(4)">
-            <img src="./img/5.jpg" class="image-item img-grid5" alt="meme" onclick="onClickImg(5)"> -->
         </div>
     </main>
 
@@ -39,8 +34,21 @@
             <canvas width="600" height="600" style="outline: 1px solid black" onclick="draw(event)"></canvas>
 
             <aside>
-                <input class="meme-txt" type="text" oninput="onTextInput(this)">
+
+                <input class="meme-txt" type="text" oninput="onTextInput(this)" placeholder="Enter your text here">
                 <button onclick="createText(); addText()">Create Text</button>
+                <input type="color" name="meme-text-color" id="" value="#FFFFFF" oninput="colorPicker(this)">
+
+                <div class="tooltip">
+                    <button onclick="changeFont(5, event)">Increas font</button>
+                    <span class="tooltiptext">Press shift to incease by 5</span>
+                </div>
+
+                <div class="tooltip">
+                    <button onclick="changeFont(-5, event)">Decrease font</button>
+                    <span class="tooltiptext">Press shift to decrease by 5</span>
+                </div>
+
             </aside>
 
         </div>
