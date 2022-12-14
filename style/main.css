@@ -1,3 +1,9 @@
+@import url("./tooltip.css");
+@import url("./photo-gallery.css");
+@import url("./meme-generator.css");
+@import url("./header.css");
+
+/* removing img/text selection */
 * {
     -khtml-user-select: none;
     -o-user-select: none;
@@ -8,6 +14,24 @@
 }
 
 
+:root {
+    /* colors */
+    --clr1: #E5E5E5;
+    --clr2: #fff;
+    --clr3: #989898;
+
+
+    /*  */
+}
+
+
+body {
+    background-color: var(--clr1);
+    margin: 0;
+}
+
+/* tooltips import */
+
 img {
     cursor: pointer;
 }
@@ -15,7 +39,7 @@ img {
 canvas {
     display: block;
     margin: 0 auto;
-    outline: 1px solid black;
+    /* outline: 1px solid black; */
     background-color: white;
     font-family: Impact;
 }
@@ -24,41 +48,15 @@ canvas {
     display: none;
 }
 
-.tooltip {
-    position: relative;
-    display: inline-block;
+
+
+
+/* helpers */
+
+.clean-list {
+    list-style: none;
 }
 
-.tooltip .tooltiptext {
-    opacity: 0;
-    width: 120px;
-    background-color: black;
-    color: #fff;
-    text-align: center;
-    border-radius: 6px;
-    padding: 8px 0;
-    transition: opacity .2s;
-
-    /* Position the tooltip */
-    position: absolute;
-    z-index: 1;
-    top: 140%;
-    left: 50%;
-    margin-left: -60px;
-}
-
-.tooltip .tooltiptext::after {
-    content: " ";
-    position: absolute;
-    bottom: 100%;
-    /* At the top of the tooltip */
-    left: 50%;
-    margin-left: -5px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: transparent transparent black transparent;
-}
-
-.tooltip:hover .tooltiptext {
-    opacity: 1;
+.flex {
+    display: flex;
 }

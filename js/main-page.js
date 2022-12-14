@@ -1,5 +1,6 @@
 'use strict';
 
+let img = new Image()
 
 function onInit() {
     renderMemes()
@@ -8,6 +9,10 @@ function onInit() {
 function renderMemes() {
     let elPhotoContainer = document.querySelector('.photo-container')
     let strHTMLs = getMemes().map(meme => {
+        img.src = `../img/${meme.imgId}.jpg`
+        let height = img.height
+        let width = img.width
+
         return `
         <img src="./img/${meme.imgId}.jpg" draggable="false" class="image-item img-grid${meme.imgId}" alt="meme" onclick="onClickImg(${meme.imgId})"/>
         `

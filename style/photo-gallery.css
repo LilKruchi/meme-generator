@@ -1,0 +1,18 @@
+/* photo gallery */
+
+.photo-container img {
+    /* padding: 10px; */
+    border-radius: 29px;
+    display: flex;
+}
+
+.photo-container {
+    display: grid;
+    min-height: 95vh;
+    grid-template-columns: repeat(auto-fit, minmax(490px, 1fr));
+    gap: 10px;
+    padding: 30px;
+    text-align: center;
+    justify-content: center;
+
+}

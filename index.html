@@ -7,37 +7,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meme generator</title>
     <link rel="stylesheet" href="style/main.css">
+    <link rel="shortcut icon" href="./img/logo.png" type="image/x-icon">
 </head>
 
 <body onload="onInit()">
 
-    <header class="unselectable-txt">
-        <div class="logo">Memes</div>
-        <ul>
-            <li><a href="#">Memes</a></li>
-            <li><a href="#">Gallery</a></li>
-            <li><a href="#">About</a></li>
-        </ul>
+    <header class="unselectable-txt flex">
+        <div class="logo flex">Meme generator <img src="./img/logo.png" draggable="false" alt=""></div>
+        <div class="img-container flex">
+            <ul class="header-links clean-list flex">
+                <li><a href="#">Memes</a></li>
+                <li><a href="#">Gallery</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+        </div>
     </header>
 
+    <!-- Gallery -->
     <main class="photo-gallery">
+
         <div class="search-bar"></div>
 
-        <div class="photo-container">
-        </div>
+        <div class="photo-container"></div>
+
     </main>
 
+    <!-- Meme generator -->
     <main class="meme-generator hidden">
-        <a href="#" class="back-to-gallery" onclick="backToGallery()">Back to Gallery</a>
 
         <div class="canvas-container">
+            <a href="#" class="back-to-gallery" onclick="backToGallery()">Back to Gallery</a>
+
             <canvas width="600" height="600" style="outline: 1px solid black" onclick="draw(event)"></canvas>
 
             <aside>
 
                 <input class="meme-txt" type="text" oninput="onTextInput(this)" placeholder="Enter your text here">
                 <button onclick="createText(); addText()">Create Text</button>
-                <input type="color" name="meme-text-color" id="" value="#FFFFFF" oninput="colorPicker(this)">
+                <input type="color" name="meme-text-color" id="meme-color" value="#FFFFFF" oninput="colorPicker(this)">
 
                 <div class="tooltip">
                     <button onclick="changeFont(5, event)">Increas font</button>
@@ -49,6 +56,7 @@
                     <span class="tooltiptext">Press shift to decrease by 5</span>
                 </div>
 
+                <button onclick="changeLineIdx()">Change Line</button>
             </aside>
 
         </div>

@@ -14,7 +14,7 @@ function createMeme(imgId) {
                 txt: '',
                 size: 60,
                 align: 'center',
-                color: 'white'
+                color: '#ffffff'
             }
         ]
     }
@@ -25,7 +25,7 @@ function createNewLine() {
         txt: '',
         size: 60,
         align: 'center',
-        color: 'white'
+        color: '#ffffff'
     }
 }
 

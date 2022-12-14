@@ -1,0 +1,47 @@
+/* Header */
+
+@font-face {
+    font-family: 'funny-font';
+    src: url('../font/Barking\ Cat.otf');
+}
+
+header {
+    background-color: var(--clr2);
+    width: 100%;
+
+}
+
+header .logo {
+    font-family: 'funny-font';
+    font-size: 3rem;
+    padding: 10px;
+    justify-items: center;
+}
+
+.logo img {
+    width: 4rem;
+    cursor: default;
+}
+
+.header-links {
+    max-width: 70%;
+    height: 5vh;
+    align-items: end;
+}
+
+.header-links li {
+    margin: 0 25px;
+    font-size: 1.5rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: normal;
+}
+
+li a {
+    text-decoration: none;
+    color: var(--clr3);
+}
+
+.img-container {
+    width: 60%;
+    justify-content: flex-end;
+}

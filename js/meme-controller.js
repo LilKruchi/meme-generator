@@ -32,7 +32,7 @@ function drawImg(imgId) {
 
 
 function drawText(text, x, y, size = 40, color) {
-    gCtx.lineWidth = 3
+    gCtx.lineWidth = 2
     gCtx.strokeStyle = 'black'
     gCtx.fillStyle = color
     gCtx.font = `${size}px Impact`;
@@ -93,9 +93,10 @@ function onTextInput(el) {
 
 function addText() {
     updateLineIdx(gCurrImgId)
-
+    let elTxtInput = document.querySelector('.meme-txt')
     let currMeme = getMemes().find(meme => meme.imgId === gCurrImgId)
     currMeme.lines.push(createNewLine())
+    elTxtInput.value = ''
 
 }
 
@@ -112,4 +113,17 @@ function changeFont(fontNum, ev) {
 
     createText()
     drawImg(gCurrImgId)
+}
+
+function changeLineIdx() {
+    let currMeme = getMemes().find(meme => meme.imgId === gCurrImgId)
+    let linesLength = currMeme.lines.length
+    currMeme.selectedLineIdx += 1
+    if (currMeme.selectedLineIdx > linesLength - 1) currMeme.selectedLineIdx = 0
+
+    let memeText = document.querySelector('.meme-txt')
+    let memeColor = document.querySelector('#meme-color')
+
+    memeText.value = currMeme.lines[currMeme.selectedLineIdx].txt
+    memeColor.value = currMeme.lines[currMeme.selectedLineIdx].color
 }
