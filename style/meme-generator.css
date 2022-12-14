@@ -1,5 +1,157 @@
 /* meme generator */
+body {
+    overflow-y: hidden;
+}
+
 .meme-generator {
-    background-color: #E5E5E5;
     height: 88vh;
+}
+
+.canvas-container {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 50px 10fr;
+    grid-template-areas:
+        "canvas aside"
+        "canvas ."
+    ;
+}
+
+canvas {
+    grid-area: canvas;
+}
+
+aside {
+    grid-area: aside;
+    height: 100vh;
+    flex-direction: column;
+}
+
+.item-container {
+    height: 29vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 3fr;
+    grid-template-areas:
+        "addTxt txtColor increase decrease change"
+        "txt txt txt txt txt"
+    ;
+    margin-right: 15%;
+    margin-top: 50%;
+}
+
+
+
+.meme-txt {
+    border: none;
+    height: 6em;
+    padding-left: 20px;
+    padding-right: 10vh;
+    grid-area: txt;
+}
+
+.enter-txt {
+    grid-area: addTxt;
+}
+
+.increase-font {
+    grid-area: increase;
+}
+
+.decrease-font {
+    grid-area: decrease;
+}
+
+.change-line {
+    grid-area: change;
+}
+
+#meme-color {
+    grid-area: txtColor;
+    height: 100%;
+    width: 100%;
+}
+
+
+@media (max-width: 800px) {
+    body {
+        overflow-y: hidden;
+    }
+
+    canvas {
+        width: 335px;
+    }
+
+    .back-to-gallery {
+        position: relative;
+        top: 65px;
+    }
+
+    .canvas-container {
+        margin-top: 70px;
+        height: 100vh;
+        display: grid;
+        grid-template-columns: 3fr;
+        grid-template-rows: 6fr 8fr;
+        grid-template-areas:
+            "canvas ."
+            "aside ."
+        ;
+    }
+
+    #meme-color {
+        grid-area: txtColor;
+        height: 100%;
+        width: 100%;
+    }
+
+    .item-container {
+        height: 29vh;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 3fr;
+        grid-template-areas:
+            "addTxt txtColor increase decrease change"
+            "txt txt txt txt txt"
+        ;
+    }
+}
+
+@media (max-width: 1000px) {
+    canvas {
+        width: 535px;
+    }
+
+    .canvas-container {
+        margin-top: 70px;
+        height: 100vh;
+        display: grid;
+        grid-template-columns: 3fr;
+        grid-template-rows: 6fr 8fr;
+        grid-template-areas:
+            "canvas ."
+            "aside ."
+        ;
+    }
+
+    #meme-color {
+        grid-area: txtColor;
+        height: 100%;
+        width: 100%;
+    }
+
+    .item-container {
+        height: 29vh;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 3fr;
+        grid-template-areas:
+            "addTxt txtColor increase decrease change"
+            "txt txt txt txt txt"
+        ;
+        margin-right: 0;
+        margin-top: 2%;
+        margin: 2% 2% 0;
+    }
 }

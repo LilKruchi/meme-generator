@@ -10,17 +10,21 @@
     <link rel="shortcut icon" href="./img/logo.png" type="image/x-icon">
 </head>
 
-<body onload="onInit()">
+<body onload="onInit()" class="">
+    <div class="main-screen full" onclick="toggleMenu()"></div>
+
 
     <header class="unselectable-txt flex">
         <div class="logo flex">Meme generator <img src="./img/logo.png" draggable="false" alt=""></div>
-        <div class="img-container flex">
+
+        <nav class="link-container flex">
             <ul class="header-links clean-list flex">
-                <li><a href="#">Memes</a></li>
-                <li><a href="#">Gallery</a></li>
-                <li><a href="#">About</a></li>
+                <li><a href="#" class="top-links memes" onclick="changeToMemes(this)">Memes</a></li>
+                <li><a href="#" class="top-links gallery selected" onclick="changeToGallery(this)">Gallery</a></li>
+                <li><a href="#" class="top-links about" onclick="changeToAbout(this)">About</a></li>
             </ul>
-        </div>
+        </nav>
+        <button class="menu-toggle-btn" onclick="toggleMenu()">☰</button>
     </header>
 
     <!-- Gallery -->
@@ -33,33 +37,33 @@
     </main>
 
     <!-- Meme generator -->
-    <main class="meme-generator hidden">
+    <main class="meme-generator flex">
 
+        <a href="#" class="back-to-gallery" onclick="backToGallery()">Back to Gallery</a>
         <div class="canvas-container">
-            <a href="#" class="back-to-gallery" onclick="backToGallery()">Back to Gallery</a>
 
             <canvas width="600" height="600" style="outline: 1px solid black" onclick="draw(event)"></canvas>
 
-            <aside>
+            <aside class="flex">
+                <div class="item-container">
+                    <button class="enter-txt" onclick="createText(); addText()">+</button>
+                    <input type="color" name="meme-text-color" id="meme-color" value="#FFFFFF"
+                        oninput="colorPicker(this)">
 
-                <input class="meme-txt" type="text" oninput="onTextInput(this)" placeholder="Enter your text here">
-                <button onclick="createText(); addText()">Create Text</button>
-                <input type="color" name="meme-text-color" id="meme-color" value="#FFFFFF" oninput="colorPicker(this)">
+                    <button class="increase-font" onclick="changeFont(5, event)">A <i class="arrow up"></i></button>
 
-                <div class="tooltip">
-                    <button onclick="changeFont(5, event)">Increas font</button>
-                    <span class="tooltiptext">Press shift to incease by 5</span>
+                    <button class="decrease-font" onclick="changeFont(-5, event)">A <i class="arrow down"></i></button>
+
+                    <button class="change-line" onclick="changeLineIdx()">Change Line</button>
+                    <input class="meme-txt" type="text" oninput="onTextInput(this)" placeholder="Enter your text here">
                 </div>
-
-                <div class="tooltip">
-                    <button onclick="changeFont(-5, event)">Decrease font</button>
-                    <span class="tooltiptext">Press shift to decrease by 5</span>
-                </div>
-
-                <button onclick="changeLineIdx()">Change Line</button>
             </aside>
 
         </div>
+    </main>
+
+    <main class="meme-gallery">
+
     </main>
 
     <script src="./js/main-page.js"></script>

@@ -1,32 +1,39 @@
 'use strict';
 
-let img = new Image()
 
 function onInit() {
     renderMemes()
+    backToGallery()
 }
 
 function renderMemes() {
+
     let elPhotoContainer = document.querySelector('.photo-container')
+
     let strHTMLs = getMemes().map(meme => {
-        img.src = `../img/${meme.imgId}.jpg`
-        let height = img.height
-        let width = img.width
 
         return `
         <img src="./img/${meme.imgId}.jpg" draggable="false" class="image-item img-grid${meme.imgId}" alt="meme" onclick="onClickImg(${meme.imgId})"/>
         `
     })
+
     elPhotoContainer.innerHTML = strHTMLs.join('')
 }
 
 function onClickImg(imgId) {
     let elGallery = document.querySelector('.photo-gallery')
     let elGenerator = document.querySelector('.meme-generator')
+    let elHeaderLinks = document.querySelector('.header-links')
+
+    elHeaderLinks.querySelector('.memes').classList.remove('selected')
+    elHeaderLinks.querySelector('.about').classList.remove('selected')
+    elHeaderLinks.querySelector('.gallery').classList.remove('selected')
 
     elGallery.style.display = 'none'
     elGenerator.style.display = 'block'
 
+    document.documentElement.style.overflow = 'hidden'
+    document.documentElement.style.backgroundColor = '#E5E5E5'
     onChangeToCanvas(imgId)
 
 }
@@ -34,8 +41,35 @@ function onClickImg(imgId) {
 function backToGallery() {
     let elGallery = document.querySelector('.photo-gallery')
     let elGenerator = document.querySelector('.meme-generator')
+    let elHeaderLinks = document.querySelector('.header-links')
 
+    elHeaderLinks.querySelector('.gallery').classList.add('selected')
+    document.documentElement.style.overflow = 'auto'
     elGallery.style.display = 'block'
     elGenerator.style.display = 'none'
+}
 
+function changeToMemes(el) {
+    el.classList.add('selected')
+    let elHeaderLinks = document.querySelector('.header-links')
+    elHeaderLinks.querySelector('.gallery').classList.remove('selected')
+    elHeaderLinks.querySelector('.about').classList.remove('selected')
+}
+
+function changeToGallery(el) {
+    el.classList.add('selected')
+    let elHeaderLinks = document.querySelector('.header-links')
+    elHeaderLinks.querySelector('.memes').classList.remove('selected')
+    elHeaderLinks.querySelector('.about').classList.remove('selected')
+}
+
+function changeToAbout(el) {
+    el.classList.add('selected')
+    let elHeaderLinks = document.querySelector('.header-links')
+    elHeaderLinks.querySelector('.memes').classList.remove('selected')
+    elHeaderLinks.querySelector('.gallery').classList.remove('selected')
+}
+
+function toggleMenu() {
+    document.body.classList.toggle('menu-open')
 }

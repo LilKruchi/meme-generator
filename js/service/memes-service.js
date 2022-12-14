@@ -33,9 +33,7 @@ function createMemes() {
     let memes = []
     // memes.push(createMeme(1))
     // memes.push(createMeme(2))
-    // memes.push(createMeme(3))
-    // memes.push(createMeme(4))
-    // memes.push(createMeme(5))
+
 
     for (let i = 1; i < 19; i++) {
         memes.push(createMeme(i))
@@ -50,4 +48,13 @@ function getMemes() {
 function updateLineIdx(id) {
     let currMeme = gMemes.find(meme => meme.imgId === id)
     currMeme.selectedLineIdx++
+}
+
+function deleteLine(id, lineIdx) {
+    let currMeme = gMemes.find(meme => meme.imgId === id)
+    let memeLine = currMeme.lines
+    console.log(memeLine);
+    let deleted = memeLine.splice(lineIdx, 1)
+    console.log(deleted);
+    console.log(memeLine);
 }

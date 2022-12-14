@@ -1,9 +1,9 @@
 /* photo gallery */
 
 .photo-container img {
-    /* padding: 10px; */
-    border-radius: 29px;
+    border-radius: 2%;
     display: flex;
+    margin-bottom: 10px;
 }
 
 .photo-container {
@@ -14,5 +14,28 @@
     padding: 30px;
     text-align: center;
     justify-content: center;
+}
 
+@media (max-width: 800px) {
+    .photo-container img {
+        margin-top: 75px;
+    }
+}
+
+@media (max-width: 1000px) {
+    .photo-container {
+        grid-template-columns: repeat(auto-fit, minmax(192px, 1fr));
+    }
+}
+
+@media (max-width: 1010px) {
+    .photo-container {
+        grid-template-columns: repeat(auto-fit, minmax(192px, 1fr));
+    }
+}
+
+@media (max-width: 1070px) {
+    .photo-container {
+        grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+    }
 }

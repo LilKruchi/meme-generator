@@ -127,3 +127,9 @@ function changeLineIdx() {
     memeText.value = currMeme.lines[currMeme.selectedLineIdx].txt
     memeColor.value = currMeme.lines[currMeme.selectedLineIdx].color
 }
+
+function onDeleteMeme() {
+    console.log(gCurrImgId);
+    deleteLine(gCurrImgId)
+    drawImg(gCurrImgId)
+}
