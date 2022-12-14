@@ -1,0 +1,25 @@
+* {
+    -khtml-user-select: none;
+    -o-user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+
+img {
+    cursor: pointer;
+}
+
+canvas {
+    display: block;
+    margin: 0 auto;
+    outline: 1px solid black;
+    background-color: white;
+    font-family: Impact;
+}
+
+.meme-generator {
+    display: none;
+}

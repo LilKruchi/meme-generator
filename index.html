@@ -5,12 +5,50 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Meme generator</title>
     <link rel="stylesheet" href="style/main.css">
 </head>
 
-<body>
+<body onload="onInit()">
 
+    <header class="unselectable-txt">
+        <div class="logo">Memes</div>
+        <ul>
+            <li><a href="#">Memes</a></li>
+            <li><a href="#">Gallery</a></li>
+            <li><a href="#">About</a></li>
+        </ul>
+    </header>
+
+    <main class="photo-gallery">
+        <div class="search-bar"></div>
+
+        <div class="photo-container">
+            <!-- <img src="./img/1.jpg" class="image-item img-grid1 1" alt="meme" onclick="onClickImg(1)">
+            <img src="./img/2.jpg" class="image-item img-grid2" alt="meme" onclick="onClickImg(2)">
+            <img src="./img/3.jpg" class="image-item img-grid3" alt="meme" onclick="onClickImg(3)">
+            <img src="./img/4.jpg" class="image-item img-grid4" alt="meme" onclick="onClickImg(4)">
+            <img src="./img/5.jpg" class="image-item img-grid5" alt="meme" onclick="onClickImg(5)"> -->
+        </div>
+    </main>
+
+    <main class="meme-generator hidden">
+        <a href="#" class="back-to-gallery" onclick="backToGallery()">Back to Gallery</a>
+
+        <div class="canvas-container">
+            <canvas width="600" height="600" style="outline: 1px solid black" onclick="draw(event)"></canvas>
+
+            <aside>
+                <button onclick="createText()">Create Text</button>
+                <input type="text" oninput="onTextInput(this)">
+            </aside>
+
+        </div>
+    </main>
+
+    <script src="./js/main-page.js"></script>
+    <script src="./js/meme-controller.js"></script>
+    <script src="./js/service/memes-service.js"></script>
 </body>
 
 </html>
