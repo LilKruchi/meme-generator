@@ -11,30 +11,39 @@ function createMeme(imgId,) {
 
         lines: [
             {
-                txt: 'Top Text',
+                txt: '',
                 size: 60,
-                align: 'left',
-                color: 'red'
+                align: 'center',
+                color: 'white'
             },
-            {
-                txt: 'Bottom Text',
-                size: 60,
-                align: 'left',
-                color: 'red'
-            },
-            {
-                txt: 'Test',
-                size: 60,
-                align: 'left',
-                color: 'red'
-            },
-            {
-                txt: 'ABC',
-                size: 60,
-                align: 'left',
-                color: 'red'
-            },
+            // {
+            //     txt: 'Bottom Text',
+            //     size: 60,
+            //     align: 'left',
+            //     color: 'white'
+            // },
+            // {
+            //     txt: 'Test',
+            //     size: 60,
+            //     align: 'left',
+            //     color: 'red'
+            // },
+            // {
+            //     txt: 'ABC',
+            //     size: 60,
+            //     align: 'left',
+            //     color: 'red'
+            // },
         ]
+    }
+}
+
+function createNewLine() {
+    return {
+        txt: '',
+        size: 60,
+        align: 'center',
+        color: 'white'
     }
 }
 
@@ -50,4 +59,9 @@ function createMemes() {
 
 function getMemes() {
     return gMemes
+}
+
+function updateLineIdx(id) {
+    let currMeme = gMemes.find(meme => meme.imgId === id)
+    currMeme.selectedLineIdx++
 }
