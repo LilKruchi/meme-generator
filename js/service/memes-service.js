@@ -4,10 +4,11 @@ let gMemes
 
 createMemes()
 
-function createMeme(imgId) {
+function createMeme(imgId, ...keywords) {
     return {
         imgId,
         selectedLineIdx: 0,
+        keywords: [keywords],
 
         lines: [
             {
@@ -36,7 +37,7 @@ function createMemes() {
 
 
     for (let i = 1; i < 19; i++) {
-        memes.push(createMeme(i))
+        memes.push(createMeme(i, 'funny', 'meme'))
     }
     gMemes = memes
 }
@@ -46,15 +47,34 @@ function getMemes() {
 }
 
 function updateLineIdx(id) {
-    let currMeme = gMemes.find(meme => meme.imgId === id)
+    let currMeme = getCurrMeme(id)
     currMeme.selectedLineIdx++
 }
 
 function deleteLine(id, lineIdx) {
-    let currMeme = gMemes.find(meme => meme.imgId === id)
+    let currMeme = getCurrMeme(id)
     let memeLine = currMeme.lines
     console.log(memeLine);
     let deleted = memeLine.splice(lineIdx, 1)
     console.log(deleted);
     console.log(memeLine);
+}
+
+function getCurrMeme(id) {
+    return gMemes.find(meme => meme.imgId === id)
+}
+
+function getCurrLine(id) {
+    let currMeme = getCurrMeme(id)
+    return currMeme.selectedLineIdx
+}
+
+function getCurrAlignment(id) {
+    let currMeme = getCurrMeme(id)
+    return currMeme.lines[getCurrLine(id)].align
+}
+
+function setCurrAlign(id, alignment) {
+    let currMeme = getCurrMeme(id)
+    currMeme.lines[getCurrLine(id)].align = alignment
 }

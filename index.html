@@ -11,20 +11,26 @@
 </head>
 
 <body onload="onInit()" class="">
-    <div class="main-screen full" onclick="toggleMenu()"></div>
 
 
     <header class="unselectable-txt flex">
         <div class="logo flex">Meme generator <img src="./img/logo.png" draggable="false" alt=""></div>
 
         <nav class="link-container flex">
-            <ul class="header-links clean-list flex">
-                <li><a href="#" class="top-links memes" onclick="changeToMemes(this)">Memes</a></li>
-                <li><a href="#" class="top-links gallery selected" onclick="changeToGallery(this)">Gallery</a></li>
-                <li><a href="#" class="top-links about" onclick="changeToAbout(this)">About</a></li>
-            </ul>
+
+            <div>
+                <ul class="header-links clean-list flex">
+                    <li><a href="#" class="top-links memes" onclick="changeToMemes(this); toggleMenu()">Memes</a></li>
+                    <li><a href="#" class="top-links gallery selected"
+                            onclick="changeToGallery(this); toggleMenu()">Gallery</a></li>
+                    <li><a href="#" class="top-links about" onclick="changeToAbout(this); toggleMenu()">About</a></li>
+                </ul>
+            </div>
+
         </nav>
-        <button class="menu-toggle-btn" onclick="toggleMenu()">☰</button>
+
+        <button class="meme-btn menu-toggle-btn" onclick="toggleMenu()">☰</button>
+        <button class="menu-close" onclick="toggleMenu()">X</button>
     </header>
 
     <!-- Gallery -->
@@ -44,17 +50,29 @@
 
             <canvas width="600" height="600" style="outline: 1px solid black" onclick="draw(event)"></canvas>
 
-            <aside class="flex">
+            <aside class="">
                 <div class="item-container">
-                    <button class="enter-txt" onclick="createText(); addText()">+</button>
-                    <input type="color" name="meme-text-color" id="meme-color" value="#FFFFFF"
+                    <button class="meme-btn enter-txt" onclick="createText(); addText()">+</button>
+                    <input type="color" name="meme-text-color" class="meme-btn" id="meme-color" value="#FFFFFF"
                         oninput="colorPicker(this)">
 
-                    <button class="increase-font" onclick="changeFont(5, event)">A <i class="arrow up"></i></button>
+                    <button class="meme-btn increase-font" onclick="changeFont(5, event)">A <span
+                            class="font-icon">+</span></button>
 
-                    <button class="decrease-font" onclick="changeFont(-5, event)">A <i class="arrow down"></i></button>
+                    <button class="meme-btn decrease-font" onclick="changeFont(-5, event)">A <span
+                            class="font-icon">-</span></button>
 
-                    <button class="change-line" onclick="changeLineIdx()">Change Line</button>
+
+                    <button class="meme-btn align align-left" onclick="alignText('left')"><img
+                            src="./svg/align-left-solid.svg" alt="align left"></button>
+                    <button class="meme-btn align align-mid" onclick="alignText('center')"><img
+                            src="./svg/align-center-solid.svg" alt="align mid"></button>
+                    <button class="meme-btn align align-right" onclick="alignText('end')"><img
+                            src="./svg/align-right-solid.svg" alt="align right"></button>
+
+
+                    <button class="meme-btn change-line align" onclick="changeLineIdx()"><img
+                            src="./svg/arrows-up-down-solid.svg" alt="switch lines"></button>
                     <input class="meme-txt" type="text" oninput="onTextInput(this)" placeholder="Enter your text here">
                 </div>
             </aside>

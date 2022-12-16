@@ -32,8 +32,9 @@ function onClickImg(imgId) {
     elGallery.style.display = 'none'
     elGenerator.style.display = 'block'
 
-    document.documentElement.style.overflow = 'hidden'
     document.documentElement.style.backgroundColor = '#E5E5E5'
+    document.documentElement.scrollTop -= 500
+    document.body.classList.add('disable-scroll')
     onChangeToCanvas(imgId)
 
 }
@@ -43,8 +44,8 @@ function backToGallery() {
     let elGenerator = document.querySelector('.meme-generator')
     let elHeaderLinks = document.querySelector('.header-links')
 
+    document.body.classList.remove('disable-scroll')
     elHeaderLinks.querySelector('.gallery').classList.add('selected')
-    document.documentElement.style.overflow = 'auto'
     elGallery.style.display = 'block'
     elGenerator.style.display = 'none'
 }
@@ -57,8 +58,14 @@ function changeToMemes(el) {
 }
 
 function changeToGallery(el) {
-    el.classList.add('selected')
+    let elGallery = document.querySelector('.photo-gallery')
+    let elGenerator = document.querySelector('.meme-generator')
     let elHeaderLinks = document.querySelector('.header-links')
+
+    elGallery.style.display = 'block'
+    elGenerator.style.display = 'none'
+    document.body.classList.remove('disable-scroll')
+    el.classList.add('selected')
     elHeaderLinks.querySelector('.memes').classList.remove('selected')
     elHeaderLinks.querySelector('.about').classList.remove('selected')
 }
