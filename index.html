@@ -36,7 +36,9 @@
     <!-- Gallery -->
     <main class="photo-gallery">
 
-        <div class="search-bar"></div>
+        <div class="search-bar">
+            <input type="text" oninput="onFilter(this)" placeholder="Search">
+        </div>
 
         <div class="photo-container"></div>
 
@@ -45,10 +47,10 @@
     <!-- Meme generator -->
     <main class="meme-generator flex">
 
-        <a href="#" class="back-to-gallery" onclick="backToGallery()">Back to Gallery</a>
+        <a href="#" class="back-to-gallery a-link" onclick="backToGallery()">← Back to Gallery</a>
         <div class="canvas-container">
 
-            <canvas width="600" height="600" style="outline: 1px solid black" onclick="draw(event)"></canvas>
+            <canvas width="600" height="600" style="outline: 1px solid black" onclick="mouseXY(event)"></canvas>
 
             <aside class="">
                 <div class="item-container">
@@ -62,19 +64,23 @@
                     <button class="meme-btn decrease-font" onclick="changeFont(-5, event)">A <span
                             class="font-icon">-</span></button>
 
+                    <button class="meme-btn align delete-lines" onclick="onDeleteLines()"><img
+                            src="./svg/trash-can-solid.svg" alt="switch lines"></button>
 
-                    <button class="meme-btn align align-left" onclick="alignText('left')"><img
-                            src="./svg/align-left-solid.svg" alt="align left"></button>
-                    <button class="meme-btn align align-mid" onclick="alignText('center')"><img
-                            src="./svg/align-center-solid.svg" alt="align mid"></button>
-                    <button class="meme-btn align align-right" onclick="alignText('end')"><img
-                            src="./svg/align-right-solid.svg" alt="align right"></button>
+                    <button class="meme-btn align align-left" onclick="alignText('left')">
+                        <img src="./svg/align-left-solid.svg" alt="align left"></button>
+                    <button class="meme-btn align align-mid" onclick="alignText('center')">
+                        <img src="./svg/align-center-solid.svg" alt="align mid"></button>
+                    <button class="meme-btn align align-right" onclick="alignText('end')">
+                        <img src="./svg/align-right-solid.svg" alt="align right"></button>
 
-
-                    <button class="meme-btn change-line align" onclick="changeLineIdx()"><img
-                            src="./svg/arrows-up-down-solid.svg" alt="switch lines"></button>
+                    <button class="meme-btn change-line align" onclick="changeLineIdx()">
+                        <img src="./svg/arrows-up-down-solid.svg" alt="switch lines"></button>
                     <input class="meme-txt" type="text" oninput="onTextInput(this)" placeholder="Enter your text here">
+
                 </div>
+                <a href="#" class="download-btn" onclick="downloadCanvas(this)" download="my-img">Download</a>
+
             </aside>
 
         </div>

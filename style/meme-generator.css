@@ -1,12 +1,13 @@
 /* meme generator */
+
 .meme-generator {
     height: 88vh;
 }
 
 .item-container {
-    height: 29vh;
+    height: 25vh;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: repeat(5, 1fr);
     grid-template-rows: 1fr 1fr 5fr;
     grid-template-areas:
         ". a-left a-mid a-right ."
@@ -17,14 +18,14 @@
 }
 
 .canvas-container {
-    height: 100vh;
+    height: 80vh;
     display: grid;
     grid-template-columns: 50px 2fr 1fr 1fr;
-    grid-template-rows: 50px 20px 1fr;
+    grid-template-rows: 205px 20px 1fr;
     grid-template-areas:
-        ".canvas . ."
-        ".canvas aside . "
-        ".canvas . ."
+        ". canvas . ."
+        ". canvas aside . "
+        ". canvas . ."
     ;
     gap: 10px;
     justify-items: center;
@@ -41,6 +42,52 @@ aside {
 }
 
 
+.download-btn {
+    background-color: #36aef4;
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 4px;
+}
+
+.download-btn:visited {
+    text-decoration: none;
+    color: white;
+}
+
+.download-btn:hover {
+    text-decoration: none;
+    color: rgb(206, 206, 206);
+}
+
+.download-btn:active {
+    text-decoration: none;
+    color: rgb(207, 207, 207);
+
+}
+
+.a-link {
+    text-decoration: none;
+    color: black;
+}
+
+.a-link:visited {
+    text-decoration: none;
+    color: black;
+}
+
+.a-link:hover {
+    text-decoration: none;
+    color: black;
+}
+
+.a-link:active {
+    text-decoration: none;
+    color: black;
+}
+
 .meme-txt {
     border-radius: 5px;
     border: none;
@@ -53,6 +100,7 @@ aside {
 .enter-txt {
     grid-area: addTxt;
     font-size: 2em;
+    color: rgb(40, 168, 40);
 }
 
 
@@ -121,16 +169,20 @@ body.menu-open .font-icon {
     border: none;
     border-radius: 15%;
     transition: background-color .1s;
+    text-align: center;
 }
 
 .meme-btn:hover {
-    background-color: rgb(150, 150, 150);
+    background-color: rgb(172, 172, 172);
+}
+
+.meme-btn:active {
+    transform: translateY(2px);
 }
 
 .align-left {
     grid-area: a-left;
 }
-
 
 .align-mid {
     grid-area: a-mid;
@@ -138,6 +190,10 @@ body.menu-open .font-icon {
 
 .align-right {
     grid-area: a-right;
+}
+
+.delete-lines img {
+    filter: invert(18%) sepia(69%) saturate(6671%) hue-rotate(356deg) brightness(101%) contrast(121%);
 }
 
 @media (max-width: 800px) {
@@ -172,6 +228,12 @@ body.menu-open .font-icon {
     .item-container {
         height: 29vh;
         display: grid;
+        grid-template-columns: repeat(5, 60px);
+    }
+
+
+    .meme-btn {
+        width: 60px;
     }
 
     .back-to-gallery {
@@ -203,7 +265,7 @@ body.menu-open .font-icon {
     }
 
     .item-container {
-        height: 29vh;
+        height: 20vh;
         display: grid;
         margin-right: 0;
         margin-top: 2%;
@@ -217,11 +279,11 @@ body.menu-open .font-icon {
     }
 
     canvas {
-        width: 335px;
+        width: 285px;
     }
 
     .item-container {
-        margin: 10px 15px 0;
+        margin: 10px 2px 0;
         gap: 5px;
     }
 

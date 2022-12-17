@@ -4,6 +4,8 @@ let gElCanvas
 let gCtx
 let gCurrImgId
 let gCurrMeme
+let gIsMouseDown = false
+
 
 function onChangeToCanvas(imgId) {
     gCurrImgId = imgId
@@ -80,11 +82,35 @@ function addTouchListeners() {
     // gElCanvas.addEventListener('touchend')
 }
 
-function draw(ev) {
+function mouseXY(ev) {
     ev.preventDefault()
 
+    let canvasX = ev.pageX - gElCanvas.offsetLeft
+    let canvasY = ev.pageY - gElCanvas.offsetTop
     const { offsetX, offsetY } = ev
-    console.log(offsetX, offsetY);
+    // console.log(offsetX, offsetY);
+    console.log(canvasX, canvasY);
+
+    moveText(canvasY)
+}
+
+function moveText(canvasY) {
+    let currMeme = getCurrMeme(gCurrImgId)
+    let currLine = getCurrLine(gCurrImgId)
+
+    let textYCoord = currMeme.lines[currLine].coordY
+    let textSize = currMeme.lines[currLine].size
+    // console.log(currMeme.lines[currLine]);
+
+
+    if (canvasY > textYCoord - textSize && canvasY < textYCoord + textSize) {
+        console.log('textArea');
+        gIsMouseDown = true
+        console.log(gIsMouseDown);
+    } else {
+        gIsMouseDown = false
+    }
+
 }
 
 function createText() {
@@ -156,12 +182,13 @@ function changeLineIdx() {
 
     memeText.value = currMeme.lines[currMeme.selectedLineIdx].txt
     memeColor.value = currMeme.lines[currMeme.selectedLineIdx].color
-    console.log(currMeme);
 }
 
-function onDeleteMeme() {
-    deleteLine(gCurrImgId)
+function onDeleteLines() {
+    let memeText = document.querySelector('.meme-txt')
+    deleteLines(gCurrImgId)
     drawImg(gCurrImgId)
+    memeText.value = ''
 }
 
 function alignText(alignDir) {
@@ -169,3 +196,13 @@ function alignText(alignDir) {
     drawImg(gCurrImgId)
 }
 
+function downloadCanvas(elLink) {
+    // Gets the canvas content and convert it to base64 data URL that can be save as an image
+    const data = gElCanvas.toDataURL() // Method returns a data URL containing a representation of the image in the format specified by the type parameter.
+    elLink.href = data // Put it on the link
+    elLink.download = 'meme' // Can change the name of the file
+}
+
+function onHoverText() {
+
+}
