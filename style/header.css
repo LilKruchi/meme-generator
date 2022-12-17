@@ -8,6 +8,7 @@
 header {
     background-color: var(--clr2);
     width: 100vw;
+    z-index: 10;
 }
 
 header .logo {

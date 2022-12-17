@@ -79,7 +79,7 @@ function toggleMenu() {
 }
 
 function onFilter(el) {
-    filterMemes(el.value)
+    filterMemes(el.value.toLowerCase())
     renderMemes()
     createMemes()
 }
